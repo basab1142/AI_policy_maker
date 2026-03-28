@@ -1,2 +1,6 @@
 .env
 papers/
+myenv/
+.venv/
+__pycache__/
+.mypy_cache/
