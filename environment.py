@@ -46,7 +46,7 @@ class CommonsSim:
             production_gently = self.production(agent, 0) * (1 - tax_rate) + np.mean(self.tax_distribution_history) 
             production_aggressive = self.production(agent, 1) * (1 - tax_rate) + np.mean(self.tax_distribution_history)
             # choose action from softmax distribution based on expected reward with greed level as a weight with temperature parameter to control exploration
-            action_prob = np.array([np.exp(production_gently / self.temperature), np.exp(production_aggressive / self.temperature)])  # Add greed to aggressive production
+            action_prob = np.array([np.exp(production_gently / self.temperature), np.exp((production_aggressive+greed) / self.temperature)])  # Add greed to aggressive production
             action_prob = action_prob / np.sum(action_prob)  # Normalize to get probabilities
             action = np.random.choice([0, 1], p=action_prob)
             agents_choice.append(action)
@@ -62,9 +62,9 @@ class CommonsSim:
         self.avg_harvest = total_harvest / self.num_agents 
         # update field health based on total mean harvest
         if self.avg_harvest > 0.5:  # If average harvest is too high, field health decreases
-            self.field_health -= 0.5*self.avg_harvest  
+            self.field_health -= 0.5*(  self.avg_harvest - 0.5)  # Decrease health more if harvest is much higher than 0.5
         else:  # If average harvest is low, field health recovers
-            self.field_health += 0.5*self.avg_harvest  
+            self.field_health += 0.5*(  0.5 - self.avg_harvest)  # Increase health more if harvest is much lower than 0.5
         self.field_health = np.clip(self.field_health, 0, 1)  # Keep health between 0 and 1
 
         # calculate rewards for agents based on their harvest and tax distribution
