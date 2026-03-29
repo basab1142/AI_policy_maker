@@ -22,6 +22,16 @@ This demonstrates the central idea of the paper[1](https://arxiv.org/abs/2402.14
 
 
 
+### LLM Policy maker
+#### llama3-8b-instruct
+The llama3-8b-instruct model behaves more smoothly and adaptively than the hardcoded policy. Instead of our previous hardcoded thresold policy it adapts to the situation and react and adjust, making to more suitable supposedly as a policy maker that justifies the claim by Gastowtt et all[2](https://arxiv.org/abs/2410.08345)
+
+The below figure shows its performance overtime
+![llama2-8b-instruct models result as a policymaker](plots/llama_3_B_instruct_results.png)
+
+### meta/llama-3.1-405b-instruct: A bigger version
+
+Will be updated  
 
 References:
 1. Position: Social Environment Design Should be Further Developed for AI-based Policy-Making [Zhang et al., 2024](https://arxiv.org/abs/2402.14090)
