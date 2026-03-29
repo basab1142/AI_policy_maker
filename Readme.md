@@ -17,8 +17,8 @@ A simple rule-based policymaker was used: if field health drops below a threshol
 
 This demonstrates the central idea of the paper[1](https://arxiv.org/abs/2402.14090): instead of directly controlling agents, we design incentives so that selfish behavior leads to socially desirable outcomes.
 
-![Observation over time](plots\plots_hardcoded_policy_maker.png)
-![Policy makers tax rate overtime](plots\simple_policy_makers_tax_rate_over_time.png)
+![Observation over time](plots/plots_hardcoded_policy_maker.png)
+![Policy makers tax rate overtime](plots/simple_policy_makers_tax_rate_over_time.png)
 
 
 
