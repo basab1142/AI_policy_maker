@@ -4,4 +4,4 @@ myenv/
 .venv/
 __pycache__/
 .mypy_cache/
-notebooks/
+# notebooks/
